@@ -1,17 +1,14 @@
-const compute = (strandA, strandB, remaining = strandA.length, difference = 0) => {
-  if (strandA.length !== strandB.length) throw new Error('DNA strands must be of equal length.')
-  if (remaining === 0) return difference
+function findDifferenceCount(x, y) {
+  const strandA = x.split('')
+  const strandB = y.split('')
 
-  const newRemaining = remaining - 1
-  const letterA = strandA.split('')[newRemaining]
-  const letterB = strandB.split('')[newRemaining]
-  const newDifference = (
-    letterA === letterB
-      ? difference
-      : difference + 1
-  )
+  return strandA.filter((current, index) => current !== strandB[index]).length
+}
 
-  return compute(strandA, strandB, newRemaining, newDifference)
+const compute = (x, y) => {
+  if (x.length !== y.length) throw new Error ('DNA strands must be of equal length.')
+
+  return findDifferenceCount(x, y)
 }
 
 function Hamming() {
