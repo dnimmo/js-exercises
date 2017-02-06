@@ -1,13 +1,13 @@
 function swapCharacter(char) {
-  const whitelist = {
+  const rnaComplements = {
     C: 'G',
     G: 'C',
     A: 'U',
     T: 'A'
   }
 
-  if (!whitelist[char]) throw new Error ('Invalid input')
-  return whitelist[char]
+  if (!rnaComplements[char]) throw new Error ('Invalid input')
+  return rnaComplements[char]
 }
 
 const toRna = dnaStrand => (
